@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <Header />
+    <Header :itemsQuantity="cart.selected.length" />
     <Product
       v-for="product in store.products"
       :key="product.id"
       :product="product"
+      :addToCart="addToCart"
     />
   </div>
 </template>
@@ -39,6 +40,23 @@ export default {
     cart: {
       selected: []
     }
-  })
+  }),
+  methods: {
+    addToCart(product) {
+      this.cart.selected = [...this.cart.selected, product];
+    }
+  }
 };
 </script>
+
+<style>
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+</style>
