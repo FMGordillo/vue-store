@@ -19,13 +19,13 @@
       @click="addQuantity"
     />
 
-    <button>Add to cart</button>
+    <button @click="() => addToCart(product, selected)">Add to cart</button>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["product"],
+  props: ["product", "addToCart"],
   data: () => ({
     selected: 1
   }),

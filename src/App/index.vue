@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header :itemsQuantity="cart.selected.length" />
+    <Header :itemsQuantity="itemsQuantity" />
     <Product
       v-for="product in store.products"
       :key="product.id"
@@ -10,5 +10,5 @@
   </div>
 </template>
 
+<style scope src="./style.css"></style>
 <script src="./script.js">
-<style src="./style.css"></style>

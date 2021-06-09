@@ -26,12 +26,22 @@ export default {
       ]
     },
     cart: {
-      selected: []
-    }
+      selected: {}
+    },
   }),
+  computed: {
+    itemsQuantity() {
+      return Object.values(this.cart.selected).reduce((sum, quantity) => {
+        return sum + quantity
+      }, 0)
+    }
+  },
   methods: {
-    addToCart(product) {
-      this.cart.selected = [...this.cart.selected, product];
+    addToCart(product, quantity) {
+      this.cart.selected = {
+        ...this.cart.selected,
+        [product.id]: quantity
+      }
     }
   }
 };
