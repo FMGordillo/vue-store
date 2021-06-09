@@ -1,5 +1,6 @@
 <template>
   <header>
+    <h1>Vue Store</h1>
     <button>Cart ({{ itemsQuantity }})</button>
   </header>
 </template>
@@ -9,5 +10,4 @@ export default {
   props: ["itemsQuantity"]
 };
 </script>
-
-<style scoped></style>
+<style scoped src="./style.css"></style>
