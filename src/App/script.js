@@ -1,4 +1,3 @@
-
 import Product from "../components/Product";
 import Header from "../components/Header";
 
@@ -27,13 +26,14 @@ export default {
     },
     cart: {
       selected: {}
-    },
+    }
   }),
   computed: {
     itemsQuantity() {
-      return Object.values(this.cart.selected).reduce((sum, quantity) => {
-        return sum + quantity
-      }, 0)
+      return Object.values(this.cart.selected).reduce(
+        (sum, quantity) => sum + quantity,
+        0
+      );
     }
   },
   methods: {
@@ -41,7 +41,7 @@ export default {
       this.cart.selected = {
         ...this.cart.selected,
         [product.id]: quantity
-      }
+      };
     }
   }
 };
