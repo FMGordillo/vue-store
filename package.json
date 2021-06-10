@@ -49,5 +49,9 @@
       "npm run lint",
       "npm run format"
     ]
+  },
+  "engines": {
+    "node": "16.3.0",
+    "npm": "7.15.1"
   }
 }
