@@ -46,7 +46,6 @@
   ],
   "lint-staged": {
     "*.{js,css,vue}": [
-      "npm run lint",
       "npm run format"
     ]
   },

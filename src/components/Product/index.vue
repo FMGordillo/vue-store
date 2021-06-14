@@ -4,7 +4,7 @@
     <p>{{ product.description }}</p>
 
     <input
-      :disabled="selected === 0"
+      :disabled="cantRemove"
       type="button"
       name="decrease"
       value="-"
@@ -12,14 +12,14 @@
     />
     <span>{{ selected }}</span>
     <input
-      :disabled="selected >= this.product.quantity"
+      :disabled="cantAdd"
       type="button"
       name="increase"
       value="+"
       @click="addQuantity"
     />
 
-    <button @click="() => addToCart(product, selected)">Add to cart</button>
+    <button @click="$emit('addToCart', product, selected)">Add to cart</button>
   </div>
 </template>
 
@@ -29,6 +29,17 @@ export default {
   data: () => ({
     selected: 1
   }),
+  computed: {
+    cantRemove() {
+      return this.selected === 0;
+    },
+    cantAdd() {
+      return this.selected >= this.product.quantity;
+    },
+    calculateProducts() {
+      return this.selected;
+    }
+  },
   methods: {
     substractQuantity() {
       if (this.selected === 0) return;

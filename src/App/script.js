@@ -42,6 +42,7 @@ export default {
         ...this.cart.selected,
         [product.id]: quantity
       };
+      console.log(this.cart);
     }
   }
 };
